@@ -1,9 +1,6 @@
 package jinliang.lda.main;
 
 /**Class for Lda model
- * @author yangliu
- * @blog http://blog.csdn.net/yangliuy
- * @mail yangliuyx@gmail.com
  */
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -58,7 +55,7 @@ public class LdaModel {
 		doc = new int[M][];
 		for(int m = 0; m < M; m++){
 			//Notice the limit of memory
-			int N = docSet.docs.get(m).docWords.length; // NÊÇÒ»¸öÎÄµµµÄµ¥´Ê¸öÊý£¬²»¿¼ÂÇÊÇ·ñÖØ¸´
+			int N = docSet.docs.get(m).docWords.length; // Næ˜¯ä¸€ä¸ªæ–‡æ¡£çš„å•è¯ä¸ªæ•°ï¼Œä¸è€ƒè™‘æ˜¯å¦é‡å¤
 			doc[m] = new int[N];
 			for(int n = 0; n < N; n++){
 				doc[m][n] = docSet.docs.get(m).docWords[n];
@@ -72,7 +69,7 @@ public class LdaModel {
 			z[m] = new int[N];
 			for(int n = 0; n < N; n++){
 				
-				//Ëæ»úÖ¸¶¨¸Ãµ¥´ÊµÄtopic
+				//éšæœºæŒ‡å®šè¯¥å•è¯çš„topic
 				int initTopic = (int)(Math.random() * K);// From 0 to K - 1
 				z[m][n] = initTopic;
 				
@@ -90,7 +87,7 @@ public class LdaModel {
 
 	public void inferenceModel(Documents docSet) throws IOException {
 		// TODO Auto-generated method stub
-		if(iterations < saveStep + beginSaveIters){// ÑµÁ·Ç°¼ì²â²ÎÊý´óÐ¡
+		if(iterations < saveStep + beginSaveIters){// è®­ç»ƒå‰æ£€æµ‹å‚æ•°å¤§å°
 			System.err.println("Error: the number of iterations should be larger than " + (saveStep + beginSaveIters));
 			System.exit(0);
 		}
