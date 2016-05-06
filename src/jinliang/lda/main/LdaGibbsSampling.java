@@ -8,11 +8,7 @@ import jinliang.lda.com.FileUtil;
 import jinliang.lda.conf.ConstantConfig;
 import jinliang.lda.conf.PathConfig;
 
-/**Liu Yang's implementation of Gibbs Sampling of LDA
- * @author yangliu
- * @blog http://blog.csdn.net/yangliuy
- * @mail yangliuyx@gmail.com
- */
+
 
 public class LdaGibbsSampling {
 	
@@ -76,11 +72,11 @@ public class LdaGibbsSampling {
 		String resultPath = PathConfig.LdaResultsPath;
 		String parameterFile= ConstantConfig.LDAPARAMETERFILE;
 		
-		// 获取参数
+		// 鑾峰彇鍙傛暟
 		modelparameters ldaparameters = new modelparameters();
 		getParametersFromFile(ldaparameters, parameterFile);
 		
-		// 读取文本，创建results的文件夹
+		// 璇诲彇鏂囨湰锛屽垱寤簉esults鐨勬枃浠跺す
 		Documents docSet = new Documents();
 		docSet.readDocs(originalDocsPath);
 		System.out.println("wordMap size " + docSet.termToIndexMap.size());
