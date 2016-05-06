@@ -11,9 +11,6 @@ import jinliang.lda.com.FileUtil;
 import jinliang.lda.com.Stopwords;
 
 /**Class for corpus which consists of M documents
- * @author yangliu
- * @blog http://blog.csdn.net/yangliuy
- * @mail yangliuyx@gmail.com
  */
 
 public class Documents {
@@ -62,17 +59,17 @@ public class Documents {
 			for(int i = 0; i < words.size(); i++){
 				String word = words.get(i);
 				if(!termToIndexMap.containsKey(word)){
-					//ÒÔÏÂÈý¸öÎªÀà±äÁ¿£¬¶ÔËùÓÐÎÄµµ¶¼Ò»Ñù
+					//ä»¥ä¸‹ä¸‰ä¸ªä¸ºç±»å˜é‡ï¼Œå¯¹æ‰€æœ‰æ–‡æ¡£éƒ½ä¸€æ ·
 					int newIndex = termToIndexMap.size();
 					termToIndexMap.put(word, newIndex);
 					indexToTermMap.add(word);
 					
-					//ÒÔÏÂÁ½¸öÎª¶ÔÏó±äÁ¿£¬Ã¿¸öÎÄµµË½ÓÐµÄ
+					//ä»¥ä¸‹ä¸¤ä¸ªä¸ºå¯¹è±¡å˜é‡ï¼Œæ¯ä¸ªæ–‡æ¡£ç§æœ‰çš„
 					termCountMap.put(word, new Integer(1));
 					docWords[i] = newIndex;
 				} else {
-					docWords[i] = termToIndexMap.get(word); // ²»¿¼ÂÇµ¥´ÊÊÇ·ñÖØ¸´£¬ÒÀ´ÎÌí¼Ó½øÀ´
-					termCountMap.put(word, termCountMap.get(word) + 1); //¸ÃÎÄµµÄÚ¸÷¸öµ¥´Ê¸öÊýµÄ¼ÆÊý
+					docWords[i] = termToIndexMap.get(word); // ä¸è€ƒè™‘å•è¯æ˜¯å¦é‡å¤ï¼Œä¾æ¬¡æ·»åŠ è¿›æ¥
+					termCountMap.put(word, termCountMap.get(word) + 1); //è¯¥æ–‡æ¡£å†…å„ä¸ªå•è¯ä¸ªæ•°çš„è®¡æ•°
 				}
 			}
 			words.clear();
